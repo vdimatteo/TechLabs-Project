@@ -4,10 +4,10 @@ import seaborn as sns
 import numpy as np
 import os
 
-df = pd.read_csv("../Test Matthias/time_series_covid19_confirmed_global.csv")
-df2 = pd.read_csv("../Test Matthias/time_series_covid19_deaths_global.csv")
-df3 = pd.read_csv("../Test Matthias/time_series_covid19_recovered_global.csv")
-population_df = pd.read_csv("../Test Matthias/Population.csv")
+df = pd.read_csv("../data/time_series_covid19_confirmed_global.csv")
+df2 = pd.read_csv("../data/time_series_covid19_deaths_global.csv")
+df3 = pd.read_csv("../data/time_series_covid19_recovered_global.csv")
+population_df = pd.read_csv("../data/Population.csv")
 
 pop2020_df = population_df[(population_df["Time"] == 2020)
                            & (population_df["Variant"] == "Medium")

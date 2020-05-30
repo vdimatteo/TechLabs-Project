@@ -1,3 +1,3 @@
 # TechLabs-Project
 
-Please use Final.py in the src-Folder.
+Please use final.py in the src-Folder.

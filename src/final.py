@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import os
+import matplotlib.dates as mdates
 
 df = pd.read_csv("../data/time_series_covid19_confirmed_global.csv")
 df2 = pd.read_csv("../data/time_series_covid19_deaths_global.csv")
@@ -101,7 +102,29 @@ active = confirmed - recovered - death
 
 # hier kommt Stefans Teil
 def plot_by_population():
-    ####### plot by population
+    countries=["Germany","China","US","Italy","Sweden"]
+    dateFmt=mdates.DateFormatter("%d.%m.20")
+    fix,(ax1,ax2)=plt.subplots(2,1,sharex=True)
+
+
+
+    #confirmed cases
+    ax1.plot(confirmed_scaled[countries])
+    ax1.set_title("Confirmed cases per 100.000 inhabitants")
+    ax1.legend(countries)
+
+
+
+
+    #confirmed deaths
+    ax2.plot(death_scaled[countries])
+    ax2.set_title("Deaths per 100.000 inhabitants")
+    ax2.legend(countries)
+    ax2.xaxis.set_major_formatter(dateFmt)
+    _ =plt.xticks(rotation=60)
+
+
+    plt.show()
     print("Press any key to close plot...")
     plt.waitforbuttonpress(0)
     plt.close()
@@ -224,7 +247,7 @@ while ans:
     4. Daily/weekly growth rates
     5. Death Rates 
     6. Doubling time of infected cases
-    7. Confirmed & death cases scaled By population
+    7. Confirmed & death cases scaled By population from preselected countries
     8. Exit
     """)
     ans = input("Please select an option: ")
